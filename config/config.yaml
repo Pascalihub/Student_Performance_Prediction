@@ -9,19 +9,18 @@ data_ingestion:
 data_validation:
   root_dir: artifacts/data_validation
   STATUS_FILE: artifacts/data_validation/status.txt
-  ALL_REQUIRED_FILES: ["train_data.csv", "test_data.csv", "raw_data.csv", "Flight.csv"]
- 
+  ALL_REQUIRED_FILES: ["train_data.csv", "test_data.csv", "raw_data.csv", "stud.csv"]
+
 data_transformation:
   root_dir: artifacts/data_transformation
   data_path: artifacts/data_ingestion/unzipped_data
-  preprocessor_path: artifacts/data_transformation/preprocessors.pkl
-
+  preprocessor_path: artifacts/data_transformation/preprocessing_obj.pkl
 
 model_trainer:
   root_dir: artifacts/model_trainer
-  data_path: artifacts/model_trainer/unzipped_data
+  data_path: artifacts/data_transformation
   model_path: artifacts/model_trainer/model.pkl
-
+  model_file_path: artifacts/model_trainer/next.pkl
 model_evaluation:
   root_dir: artifacts/model_evaluation
   data_path: artifacts/data_transformation/unzipped_data
